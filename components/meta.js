@@ -1,10 +1,15 @@
 import Head from 'next/head'
-
-const Meta = ({ pageTitle }) => (
-  <Head>
-    <title>{pageTitle}</title>
-    <meta propeaty='og:title' content={pageTitle} />
-  </Head>
-)
+import { siteMeta } from 'lib/constants'
+const { siteTitle, siteDesc, siteUrl, siteLocale, siteType, siteIcon } =
+  siteMeta
+const Meta = ({ pageTitle }) => {
+  const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle
+  return (
+    <Head>
+      <title>{title}</title>
+      <meta propeaty='og:title' content={title} />
+    </Head>
+  )
+}
 
 export default Meta
