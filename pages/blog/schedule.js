@@ -1,3 +1,6 @@
+import { getPostBySlug } from 'lib/api'
+import Container from 'components/container'
+
 const Schedule = ({ title, publish, content, eyecatch, categories }) => (
   <Container>
     <h1>{title}</h1>
@@ -17,3 +20,5 @@ const getStaticProps = async () => {
     }
   }
 }
+
+export default Schedule
