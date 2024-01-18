@@ -1,6 +1,14 @@
 import { getPostBySlug } from 'lib/api'
 import Container from 'components/container'
 import PostHeader from 'components/post-header'
+import PostBody from 'components/post-body'
+
+import {
+  TwoColumn,
+  TwoColumnMain,
+  TwoColumnSidebar
+} from 'components/two-column'
+import ConvertBody from 'components/convert-body'
 import Image from 'next/legacy/image'
 import { eyecatchLocal } from '@/lib/constants'
 
@@ -19,6 +27,14 @@ const Schedule = ({ title, publish, content, eyecatch, categories }) => (
           priority
         />
       </figure>
+      <TwoColumn>
+        <TwoColumnMain>
+          <PostBody>
+            <ConvertBody contentHTML={content} />
+          </PostBody>
+        </TwoColumnMain>
+        <TwoColumnSidebar></TwoColumnSidebar>
+      </TwoColumn>
     </article>
   </Container>
 )
@@ -26,7 +42,8 @@ const Schedule = ({ title, publish, content, eyecatch, categories }) => (
 const getStaticProps = async () => {
   const slug = 'schedule'
   const post = await getPostBySlug(slug)
-  console.log(post.title)
+  // const description = extractText(post.content)
+  // const eyecatch = post.eyecatch ?? eyecatchLocal
   return {
     props: {
       title: post.title,
