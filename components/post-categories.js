@@ -1,7 +1,7 @@
 import styles from 'styles/post-categories.module.css'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFolderOpen } from '@fortawesome/free-regular-svg'
+import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 
 const PostCategories = ({ categories }) => (
   <div className={styles.flexContainer}>
