@@ -46,7 +46,7 @@ const getStaticProps = async () => {
   const slug = 'schedule'
   const post = await getPostBySlug(slug)
   // const description = extractText(post.content)
-  // const eyecatch = post.eyecatch ?? eyecatchLocal
+  const eyecatch = post.eyecatch ?? eyecatchLocal
   return {
     props: {
       title: post.title,
